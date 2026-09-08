@@ -21,13 +21,13 @@ export const education = [
     period: '2023',
     title: 'Class XII · WBCHSE',
     school: 'Kshudrarampur High School',
-    detail: 'Percentage · 60%',
+    detail: '',
   },
   {
     period: '2021',
     title: 'Class X · WBBSE',
     school: 'Kshudrarampur High School',
-    detail: 'Percentage · 86%',
+    detail: '',
   },
 ]
 
@@ -83,4 +83,21 @@ export const certifications = [
   ['Artificial Intelligence & Deep Learning Course Completion Certificate', 'Infosys Springboard'],
 ]
 
-export const techStack = ['Python', 'SQL', 'React', 'JavaScript', 'HTML', 'CSS', 'Flask', 'MySQL', 'Power BI', 'Excel', 'Git', 'GitHub', 'Google Colab', 'Machine Learning', 'AI', 'Gemini API']
+export const techStack = [
+  { name: 'Python', icon: 'PY', tone: 'cyan' },
+  { name: 'SQL', icon: 'SQL', tone: 'blue' },
+  { name: 'React', icon: 'RE', tone: 'purple' },
+  { name: 'JavaScript', icon: 'JS', tone: 'amber' },
+  { name: 'HTML', icon: 'HT', tone: 'orange' },
+  { name: 'CSS', icon: 'CS', tone: 'indigo' },
+  { name: 'Flask', icon: 'FL', tone: 'green' },
+  { name: 'MySQL', icon: 'MY', tone: 'cyan' },
+  { name: 'Power BI', icon: 'PB', tone: 'blue' },
+  { name: 'Excel', icon: 'XL', tone: 'green' },
+  { name: 'Git', icon: 'GT', tone: 'orange' },
+  { name: 'GitHub', icon: 'GH', tone: 'slate' },
+  { name: 'Google Colab', icon: 'GC', tone: 'purple' },
+  { name: 'Machine Learning', icon: 'ML', tone: 'cyan' },
+  { name: 'AI', icon: 'AI', tone: 'violet' },
+  { name: 'Gemini API', icon: 'GA', tone: 'pink' },
+]
