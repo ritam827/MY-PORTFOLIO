@@ -54,13 +54,14 @@ export const projects = [
   {
     number: '02',
     title: 'Business Analytics & Decision Support System',
-    type: 'Planned project direction',
-    description: 'An AI-based business analytics concept for turning operational data into useful insights and recommendations.',
+    type: 'Implemented project',
+    description: 'An AI-powered business analytics dashboard for transforming operational data into actionable business decisions.',
     problem: 'Managers need a clearer path from raw business data to KPIs, trends, and decisions they can act on.',
-    solution: 'A proposed analytics workflow covering upload, cleaning, exploratory analysis, visualization, and AI-assisted recommendations.',
-    features: ['Business data upload and cleaning', 'KPI, sales, and revenue analysis', 'Customer and product insights', 'Interactive dashboards', 'Predictive analytics concept'],
+    solution: 'A complete analytics workflow with upload, data cleaning, exploratory analysis, dashboarding, and AI-assisted recommendations.',
+    features: ['Business data upload and cleaning', 'KPI, sales, and revenue analysis', 'Customer and product insights', 'Interactive dashboards', 'Predictive analytics support'],
     tech: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'SQL', 'Power BI', 'Flask', 'React'],
-    planned: true,
+    live: 'https://ai-business-analytics-decision-support.onrender.com/',
+    planned: false,
   },
 ]
 
