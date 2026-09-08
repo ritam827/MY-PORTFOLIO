@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowUpRight, Check, GraduationCap, Mail, MapPin, Menu, Phone, Send, Sparkles, Trophy, X, Zap } from 'lucide-react'
 import { certifications, education, experience, hackathons, profile, projects, skillGroups, techStack } from './data/portfolioData'
 import ThreeBackground from './components/ThreeBackground'
+import { AnalyticsDashboard, CursorGlow, DataNetwork, PageLoader, ScrollProgress, SignaturePipeline, TerminalCard, WordReveal } from './components/AnimationEffects'
 import profileImage from './assets/profile.jpg'
 import resumeFile from './assets/resume/RITAM_BERA_BWU_BTA_23_247 (2).pdf'
 import './App.css'
@@ -10,7 +11,7 @@ import './App.css'
 const fadeUp = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.65 } } }
 
 function SectionHeading({ eyebrow, title, intro }) {
-  return <motion.div className="section-heading" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }}><span className="eyebrow">{eyebrow}</span><h2>{title}</h2>{intro && <p>{intro}</p>}</motion.div>
+  return <motion.div className="section-heading" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }}><span className="eyebrow">{eyebrow}</span>{eyebrow.startsWith('04 /') && <SignaturePipeline />}<h2><WordReveal>{title}</WordReveal></h2>{intro && <p>{intro}</p>}</motion.div>
 }
 
 function GithubMark({ size = 18 }) {
@@ -38,9 +39,12 @@ function App() {
   const handleContact = (event) => { event.preventDefault(); const data = new FormData(event.currentTarget); window.location.href = `mailto:${profile.email}?subject=Portfolio contact from ${data.get('name')}&body=${data.get('message')}%0A%0AReply to: ${data.get('email')}` }
 
   return <div className="site-shell">
+    <PageLoader />
+    <ScrollProgress />
+    <CursorGlow />
     <div className="ambient ambient-one" /><div className="ambient ambient-two" />
     <header className="nav-wrap"><nav className="nav container" aria-label="Primary navigation"><button className="brand" onClick={() => scrollTo('home')} aria-label="Go to home"><span>RB</span><strong>RITAM BERA</strong></button><button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>{menuOpen ? <X /> : <Menu />}</button><div className={`nav-links ${menuOpen ? 'is-open' : ''}`}>{links.map((link) => <button key={link} className={active === link ? 'active' : ''} onClick={() => scrollTo(link)}>{link}</button>)}</div></nav></header>
-    <main>
+    <main><DataNetwork /><div className="enhancement-dock"><AnalyticsDashboard /><TerminalCard /></div>
       <section id="home" className="hero container"><ThreeBackground /><div className="hero-copy"><div className="status"><span /> Open to opportunities</div><p className="kicker">AI & ML student · data analyst in the making</p><h1>Turning data into <em>insights.</em><br />Building AI-powered solutions.</h1><p className="hero-intro">Hi, I'm Ritam Bera — an aspiring Data Analyst and B.Tech Computer Science & Engineering student specializing in AI & ML.</p><div className="hero-actions"><button className="button button-primary" onClick={() => scrollTo('projects')}>View my work <ArrowUpRight size={17} /></button><a className="button button-quiet" href={resumeFile} download="Ritam_Bera_Resume.pdf">Download resume <ArrowUpRight size={17} /></a></div><div className="social-row"><a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub"><GithubMark /></a><a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><LinkedinMark /></a><a href={`mailto:${profile.email}`} aria-label="Email"><Mail size={18} /></a><span className="social-line" /><span>Based in Kolkata, India</span></div></div><div className="hero-visual"><div className="orbit orbit-a" /><div className="orbit orbit-b" /><div className="portrait"><div className="portrait-grid" /><img className="portrait-initials" src={profileImage} alt="Ritam Bera" /><div className="portrait-label"><span>01</span><span>Data / AI</span></div></div><div className="float-card float-card-top"><Zap size={15} /><span><b>Insight</b><small>meets action</small></span></div><div className="float-card float-card-bottom"><span className="mini-bars"><i /><i /><i /><i /><i /></span><span><b>8.5 / 10</b><small>current CGPA</small></span></div></div></section>
 
       <section id="about" className="section container about-section"><SectionHeading eyebrow="01 / Career objective" title="Curious about the signal inside the noise." /><div className="about-grid"><motion.div className="objective-card glass" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}><Sparkles className="card-icon" size={22} /><p>{profile.objective}</p><div className="card-foot"><span>Focused on</span><b>Analytics · AI · Decisions</b></div></motion.div><div className="about-aside"><div className="data-mark"><span>DATA</span><i /><span>INSIGHT</span><i /><span>ACTION</span></div><p>Building a foundation where technical curiosity becomes useful, explainable work.</p></div></div></section>
